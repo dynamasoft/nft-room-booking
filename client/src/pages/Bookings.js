@@ -16,14 +16,15 @@ import Select from "@mui/material/Select";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DateTimePicker from "@mui/lab/DateTimePicker";
+import Moment from "react-moment";
 
 export default function Bookings() {
   const [booking, setBooking] = useState([]);
   const [open, setOpen] = React.useState(false);
-  const [rooms, setRooms] = React.useState(false);
-  const [room, setRoom] = React.useState(false);
-  const [startDate, setStartDate] = React.useState(false);
-  const [endDate, setEndDate] = React.useState(false);
+  const [rooms, setRooms] = React.useState();
+  const [roomId, setRoomId] = React.useState();
+  const [startDate, setStartDate] = React.useState(Moment.now);
+  const [endDate, setEndDate] = React.useState(Moment.now);
 
   useEffect(() => {
     debugger;
@@ -33,14 +34,22 @@ export default function Bookings() {
 
     fetch("http://localhost:8000/rooms")
       .then((res) => res.json())
-      .then((data) => setRooms(data));
+      .then((data) =>
+      {
+        debugger;
+        setRooms(data);
+        setRoomId(data[0].id);
+      });
+    
   }, []);
 
   const handleClickOpen = () => {
+    debugger;
     setOpen(true);
   };
 
   const handleClose = () => {
+    debugger;
     setOpen(false);
   };
 
@@ -51,6 +60,18 @@ export default function Bookings() {
     const newbookings = booking.filter((booking) => booking.id != id);
     setBooking(newbookings);
   };
+
+  const handleSubmit = (e) => {
+    debugger;
+    e.preventDefault();
+   
+  }
+
+  const handleSetRoom = (e) =>
+  {
+    setRoomId(e.target.value);
+  }
+
 
   return (
     <>
@@ -63,55 +84,57 @@ export default function Bookings() {
           Book A Room
         </Button>
       </Box>
-
-      <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Book A Room </DialogTitle>
+      <Dialog open={open} onClose={handleClose} maxWidth="sm" >
+        <DialogTitle>Book A Room </DialogTitle>        
         <DialogContent>
-          <form>
-            <FormControl sx={{ m: 1, minWidth: 120 }}>
-              <InputLabel id="demo-simple-select-helper-label">Room</InputLabel>
+          <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+            <FormControl sx={{ m: 1, minWidth: 20 }} fullWidth >
+              <InputLabel id="room-label">Room</InputLabel>
               <Select
-                labelId="demo-simple-select-helper-label"
-                id="demo-simple-select-helper"
-                value={room.name}
-                label="Age"
-                onChange={setRoom}
+                labelId="room-select"
+                id="room"
+                value={roomId}
+                label="Room"
+                onChange={handleSetRoom}
                 fullWidth
                 variant="standard"
               >
-                {rooms.map((room) => (
-                  <MenuItem value={room.id}>{room.name}</MenuItem>
+                {rooms?.map((room) => (
+                  <MenuItem key={room.id} value={room.id}>{room.name}</MenuItem>
                 ))}
               </Select>
             </FormControl>
 
             <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <FormControl sx={{ m: 1, minWidth: 20 }} fullWidth >
               <DateTimePicker
                 renderInput={(props) => <TextField {...props} />}
-                label="DateTimePicker"
+                label="Start Date and Time"
                 value={startDate}
                 onChange={(newValue) => {
                   setStartDate(newValue);
                 }}
               />
+              </FormControl>
+              <FormControl sx={{ m: 1, minWidth: 20 }} fullWidth >
+                <DateTimePicker
+                renderInput={(props) => <TextField {...props} />}
+                label="End Date and Time"
+                value={endDate}
+                onChange={(newValue) => {
+                  setEndDate(newValue);
+                }}                
+              />
+              </FormControl>
             </LocalizationProvider>
-
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label="End Date"
-              type="email"
-              fullWidth
-              variant="standard"
-            />
+           
           </form>
         </DialogContent>
         <DialogActions>
-          <Button color="default" variant="outlined" onClick={handleClose}>
+          <Button color="primary" variant="outlined" onClick={handleClose}>
             Cancel
           </Button>
-          <Button color="secondary" variant="contained" onClick={handleClose}>
+          <Button color="secondary" variant="contained" type="submit">
             Book
           </Button>
         </DialogActions>

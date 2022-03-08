@@ -71,7 +71,7 @@ export default function Layout({ children }) {
 
   return (
     <div className={classes.root}>
-      {/* app bar */}
+    
       <AppBar 
         position="fixed" 
         className={classes.appBar}
@@ -86,8 +86,7 @@ export default function Layout({ children }) {
           <Avatar className={classes.avatar} src="/mario-av.png" />
         </Toolbar>
       </AppBar>
-
-      {/* side drawer */}
+      
       <Drawer
         className={classes.drawer}
         variant="permanent"
@@ -96,11 +95,10 @@ export default function Layout({ children }) {
       >
         <div>
           <Typography variant="h5" className={classes.title}>
-            Ninja Notes
+            Room Booking
           </Typography>
         </div>
-
-        {/* links/list section */}
+        
         <List>
           {menuItems.map((item) => (
             <ListItem 
@@ -117,7 +115,7 @@ export default function Layout({ children }) {
         
       </Drawer>
 
-      {/* main content */}
+      
       <div className={classes.page}>
         <div className={classes.toolbar}></div>
         { children }

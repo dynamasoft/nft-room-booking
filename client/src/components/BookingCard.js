@@ -47,13 +47,13 @@ export default function BookingCard({ booking, handleDelete }) {
         <CardContent>
           {
             <>
-              <Typography variant="body2" color="textSecondary">
+              <Box color="secondary">
                 <div>Booker: {booking.userName}</div>
                 <div>Company: {booking.companyName}</div>
                 <div>
                   Date: {booking.startDate} - {booking.endDate}
                 </div>
-              </Typography>
+              </Box>
             </>
           }         
         </CardContent>
