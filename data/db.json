@@ -1,0 +1,52 @@
+{  
+  "rooms": [
+    {
+      "id": 1,
+      "name": "Colorado",
+      "description": "try's standard dummy text ever since the 1500s, when an unkno"
+    },
+    {
+      "id": 2,
+      "name": "New York City",
+      "description": "rinter took a galley of type and scrambled it to make a type specimen "
+    },
+    {
+      "id": 3,
+      "name": "Denver",
+      "description": "using Content here, content here making it look like readable Engli"
+    },
+    {
+      "id": 4,
+      "name": "Chicago",
+      "description": "there isn't anything embarrassing hidden in the middle of text. All the Lore"
+    },
+    {
+      "id": 5,
+      "name": "Philadelphia",
+      "description": "the Internet. It uses a dictionary of over 200 Latin words, combined "
+    }
+  ],
+  
+  "bookings": [
+    {
+      "id": 1,
+      "roomId": 1,
+      "roomName":"Denver",
+      "userId": 1,
+      "userName": "Smitty",
+      "companyName":"COKE",
+      "startDate": "01/01/2022 11:00",
+      "endDate": "01/01/2022 12:00"
+    },
+    {
+      "id": 2,
+      "roomId": 2,
+      "roomName":"Denver",
+      "userId": 1,
+      "userName": "Smitty",
+      "companyName":"PEPSI",
+      "startDate": "01/01/2022 11:00",
+      "endDate": "01/01/2022 12:00"
+    }
+  ]
+}
