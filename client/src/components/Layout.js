@@ -1,17 +1,17 @@
 import React from 'react'
-import { makeStyles } from '@material-ui/core'
-import Drawer from '@material-ui/core/Drawer'
-import Typography from '@material-ui/core/Typography'
+import { makeStyles } from '@mui/styles'
+import Drawer from '@mui/material/Drawer'
+import Typography from '@mui/material/Typography'
 import { useHistory, useLocation } from 'react-router-dom'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
-import ListItemText from '@material-ui/core/ListItemText'
-import { AddCircleOutlineOutlined, SubjectOutlined } from '@material-ui/icons'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
+import { AddCircleOutlineOutlined, SubjectOutlined } from '@mui/icons-material'
+import AppBar from '@mui/material/AppBar'
+import Toolbar from '@mui/material/Toolbar'
 import { format } from 'date-fns'
-import Avatar from '@material-ui/core/Avatar'
+import Avatar from '@mui/material/Avatar'
 
 const drawerWidth = 240
 
@@ -56,17 +56,7 @@ export default function Layout({ children }) {
   const history = useHistory()
   const location = useLocation()
 
-  const menuItems = [
-    { 
-      text: 'My Notes', 
-      icon: <SubjectOutlined color="secondary" />, 
-      path: '/' 
-    },
-    { 
-      text: 'Create Note', 
-      icon: <AddCircleOutlineOutlined color="secondary" />, 
-      path: '/create' 
-    },
+  const menuItems = [   
     { 
       text: 'Rooms', 
       icon: <AddCircleOutlineOutlined color="secondary" />, 

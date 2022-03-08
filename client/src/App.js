@@ -1,13 +1,12 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Notes from './pages/Notes'
-import Create from './pages/Create'
+import Home from './pages/Home'
 import Rooms from './pages/Rooms'
 import Bookings from './pages/Bookings'
-import { createMuiTheme, ThemeProvider } from '@material-ui/core'
-import { purple } from '@material-ui/core/colors'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { purple } from '@mui/material/colors'
 import Layout from './components/Layout'
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: '#fefefe'
@@ -30,11 +29,8 @@ function App() {
         <Layout>
           <Switch>
             <Route exact path="/">
-              <Notes />
-            </Route>
-            <Route path="/create">
-              <Create />
-            </Route>
+              <Home />
+            </Route>            
             <Route path="/rooms">
               <Rooms />
             </Route>

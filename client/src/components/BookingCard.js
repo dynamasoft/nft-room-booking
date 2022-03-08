@@ -1,17 +1,17 @@
 import React from "react";
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
-import DeleteOutlined from "@material-ui/icons/DeleteOutlined";
-import CancelOutlined from "@material-ui/icons/CancelOutlined";
-import EditOutlined from "@material-ui/icons/EditOutlined";
-import { makeStyles } from "@material-ui/core";
-import Avatar from "@material-ui/core/Avatar";
-import Grid from "@material-ui/core/Grid";
-import Box from "@material-ui/core/Box";
-import { yellow, green, pink, blue } from "@material-ui/core/colors";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import DeleteOutlined from "@mui/icons-material/DeleteOutlined";
+import CancelOutlined from "@mui/icons-material/CancelOutlined";
+import EditOutlined from "@mui/icons-material/EditOutlined";
+import { makeStyles } from "@mui/styles";
+import Avatar from "@mui/material/Avatar";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import { yellow, green, pink, blue } from "@mui/material/colors";
 
 const useStyles = makeStyles({
   avatar: {
